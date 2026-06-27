@@ -1,0 +1,372 @@
+/* App.css
+   ========
+   Styles for the Portfolio Advisor frontend (App.jsx).
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.pa-page {
+  min-height: 100vh;
+  background: #f7f7f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 2rem 1rem;
+}
+
+.pa-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.pa-header {
+  margin-bottom: 1.5rem;
+}
+
+.pa-h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pa-subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* ── Cards ───────────────────────────────────────────────────────────── */
+
+.pa-card {
+  background: #fff;
+  border: 1px solid #e5e5e0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.pa-section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 12px;
+}
+
+.pa-mt-16 {
+  margin-top: 16px;
+}
+
+.pa-mt-20 {
+  margin-top: 20px;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────── */
+
+.pa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.pa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pa-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+}
+
+.pa-input {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background: #fafaf8;
+  color: #111;
+  font-family: inherit;
+}
+
+.pa-input option {
+  color: #111;
+  background: #fff;
+}
+
+input,
+select,
+option,
+textarea {
+  color: #111 !important;
+}
+
+.pa-input:focus {
+  border-color: #999;
+}
+
+.pa-button {
+  margin-top: 1.25rem;
+  width: 100%;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pa-button:hover {
+  opacity: 0.9;
+}
+
+.pa-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pa-secondary-button {
+  width: 100%;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pa-secondary-button:hover {
+  background: #f5f5f3;
+}
+
+.pa-error-box {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fcebeb;
+  color: #791f1f;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* ── Risk score ──────────────────────────────────────────────────────── */
+
+.pa-score-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.pa-score-value {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.pa-score-suffix {
+  font-size: 14px;
+  color: #666;
+}
+
+.pa-tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.pa-tag-conservative {
+  background: #e6f1fb;
+  color: #0c447c;
+}
+
+.pa-tag-moderate {
+  background: #faeeda;
+  color: #633806;
+}
+
+.pa-tag-aggressive {
+  background: #faece7;
+  color: #993c1d;
+}
+
+.pa-risk-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.pa-risk-bar-bg {
+  height: 8px;
+  border-radius: 4px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.pa-risk-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.pa-risk-fill-conservative {
+  background: #378add;
+}
+
+.pa-risk-fill-moderate {
+  background: #ba7517;
+}
+
+.pa-risk-fill-aggressive {
+  background: #d85a30;
+}
+
+/* ── Breakdown table ─────────────────────────────────────────────────── */
+
+.pa-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pa-row-label {
+  padding: 4px 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.pa-row-value {
+  padding: 4px 0;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.pa-row-value-bold {
+  font-weight: 600;
+}
+
+.pa-rationale-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.pa-rationale-item {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+/* ── Allocation ──────────────────────────────────────────────────────── */
+
+.pa-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pa-metric {
+  background: #f7f7f5;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.pa-metric-label {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.pa-metric-value {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.pa-alloc-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0ec;
+}
+
+.pa-alloc-row:last-child {
+  border-bottom: none;
+}
+
+.pa-alloc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pa-alloc-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.pa-alloc-name {
+  font-size: 14px;
+}
+
+.pa-alloc-desc {
+  font-size: 12px;
+  color: #888;
+}
+
+.pa-alloc-bar-bg {
+  width: 80px;
+  height: 5px;
+  border-radius: 3px;
+  background: #eee;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pa-alloc-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.pa-alloc-pct {
+  width: 50px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.pa-alloc-amount {
+  width: 100px;
+  text-align: right;
+  font-size: 12px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .pa-alloc-amount {
+    display: none;
+  }
+
+  .pa-metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
