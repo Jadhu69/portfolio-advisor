@@ -272,38 +272,7 @@ function Results({ result, onReset }) {
   const b = riskProfile.breakdown;
 
   return (
-    <div>
-      <div className="pa-card">
-        <p className="pa-section-label">Risk assessment</p>
-        <div className="pa-score-row">
-          <span className="pa-score-value">{riskProfile.score.toFixed(1)}</span>
-          <span className="pa-score-suffix">/ 10 risk score</span>
-          <Tag profile={riskProfile.profile} />
-        </div>
-        <RiskBar score={riskProfile.score} />
-
-        <p className="pa-section-label pa-mt-20">Score breakdown</p>
-        <table className="pa-table">
-          <tbody>
-            <Row label="Base score" value={b.base_score.toFixed(1)} />
-            <Row label="Age adjustment" value={fmt(b.age_adjustment)} />
-            <Row label="Goal adjustment" value={fmt(b.goal_adjustment)} />
-            <Row label="Horizon adjustment" value={fmt(b.horizon_adjustment)} />
-            <Row label="Mode adjustment" value={fmt(b.mode_adjustment)} />
-            <Row label="Final score" value={b.final_score.toFixed(1)} bold />
-          </tbody>
-        </table>
-
-        <p className="pa-section-label pa-mt-20">Rationale</p>
-        <ol className="pa-rationale-list">
-          {b.rationale.map((r, i) => (
-            <li key={i} className="pa-rationale-item">
-              {r}
-            </li>
-          ))}
-        </ol>
-      </div>
-
+    <>
       <div className="pa-card">
         <p className="pa-section-label">Asset allocation</p>
         <div className="pa-metric-grid">
@@ -337,11 +306,43 @@ function Results({ result, onReset }) {
           </>
         )}
       </div>
+      <div>
+        <div className="pa-card">
+          <p className="pa-section-label">Risk assessment</p>
+          <div className="pa-score-row">
+            <span className="pa-score-value">{riskProfile.score.toFixed(1)}</span>
+            <span className="pa-score-suffix">/ 10 risk score</span>
+            <Tag profile={riskProfile.profile} />
+          </div>
+          <RiskBar score={riskProfile.score} />
 
-      <button onClick={onReset} className="pa-secondary-button">
-        Start over
-      </button>
-    </div>
+          <p className="pa-section-label pa-mt-20">Score breakdown</p>
+          <table className="pa-table">
+            <tbody>
+              <Row label="Base score" value={b.base_score.toFixed(1)} />
+              <Row label="Age adjustment" value={fmt(b.age_adjustment)} />
+              <Row label="Goal adjustment" value={fmt(b.goal_adjustment)} />
+              <Row label="Horizon adjustment" value={fmt(b.horizon_adjustment)} />
+              <Row label="Mode adjustment" value={fmt(b.mode_adjustment)} />
+              <Row label="Final score" value={b.final_score.toFixed(1)} bold />
+            </tbody>
+          </table>
+
+          <p className="pa-section-label pa-mt-20">Rationale</p>
+          <ol className="pa-rationale-list">
+            {b.rationale.map((r, i) => (
+              <li key={i} className="pa-rationale-item">
+                {r}
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <button onClick={onReset} className="pa-secondary-button">
+          Start over
+        </button>
+      </div>
+    </>
   );
 }
 
