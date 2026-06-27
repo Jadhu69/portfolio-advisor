@@ -9,7 +9,7 @@
  * (defaults to http://localhost:8000).
  */
 
-import PortfolioPieChart from "./PortfolioPieChart";
+import PortfolioPieChart from "./components/PortfolioPieChart";
 import React, { useState } from "react";
 import "./App.css";
 
