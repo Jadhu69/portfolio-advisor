@@ -9,6 +9,7 @@
  * (defaults to http://localhost:8000).
  */
 
+import PortfolioPieChart from "./PortfolioPieChart";
 import React, { useState } from "react";
 import "./App.css";
 
@@ -274,37 +275,55 @@ function Results({ result, onReset }) {
   return (
     <>
       <div className="pa-card">
-        <p className="pa-section-label">Asset allocation</p>
-        <div className="pa-metric-grid">
-          <Metric
-            label="Total invested"
-            value={`$${allocation.total_amount.toLocaleString()}`}
-          />
-          <Metric
-            label="Mode"
-            value={allocation.mode === "sip" ? "Monthly SIP" : "Lump sum"}
-          />
-          <Metric label="Horizon" value={`${allocation.horizon_years} yr`} />
-        </div>
+  <p className="pa-section-label">Portfolio Recommendation</p>
 
-        {allocation.slices.map((s) => (
-          <AllocRow key={s.name} slice={s} mode={allocation.mode} />
-        ))}
+  {/* Pie Chart */}
+  <div className="pa-chart">
+    <PortfolioPieChart allocation={allocation.slices} />
+  </div>
 
-        {allocation.adjustments.length > 0 && (
-          <>
-            <p className="pa-section-label pa-mt-16">
-              Context-specific adjustments
-            </p>
-            <ul className="pa-rationale-list">
-              {allocation.adjustments.map((a, i) => (
-                <li key={i} className="pa-rationale-item">
-                  {a}
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+  {/* Allocation Table */}
+  <table className="pa-table">
+    <thead>
+      <tr>
+        <th>Asset Class</th>
+        <th>Allocation</th>
+        <th>Investment</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {allocation.slices.map((slice) => (
+        <tr key={slice.asset}>
+          <td>{slice.asset}</td>
+
+          <td>{slice.pct}%</td>
+
+          <td>
+            {allocation.mode === "sip"
+              ? `$${slice.amount.toLocaleString()}/month`
+              : `$${slice.amount.toLocaleString()}`}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td><strong>Total</strong></td>
+
+        <td><strong>100%</strong></td>
+
+        <td>
+          <strong>
+            {allocation.mode === "sip"
+              ? `$${allocation.total.toLocaleString()}/month`
+              : `$${allocation.total.toLocaleString()}`}
+          </strong>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
       </div>
       <div>
         <div className="pa-card">
