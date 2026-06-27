@@ -12,7 +12,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE =
+  import.meta.env.VITE_API_BASE ||
+  "https://portfolio-advisor-oo13.onrender.com";
 
 const GOALS = [
   { value: "", label: "Select goal" },
