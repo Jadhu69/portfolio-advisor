@@ -40,6 +40,13 @@ alloc_engine = AllocationEngine()
 def health_check():
     """Simple liveness check."""
     return {"status": "ok", "service": "portfolio-advisor-api"}
+@app.get("/")
+def root():
+    return {
+        "message": "Portfolio Advisor API is running!",
+        "docs": "/docs",
+        "health": "/api/health"
+    }
 
 
 @app.post(
