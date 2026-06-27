@@ -279,6 +279,7 @@ function Results({ result, onReset }) {
 
   {/* Pie Chart */}
   <div className="pa-chart">
+    <pre>{JSON.stringify(allocation.slices, null, 2)}</pre>
     <PortfolioPieChart allocation={allocation.slices} />
   </div>
 
@@ -294,8 +295,8 @@ function Results({ result, onReset }) {
 
     <tbody>
       {allocation.slices.map((slice) => (
-        <tr key={slice.asset}>
-          <td>{slice.asset}</td>
+        <tr key={slice.name}>
+  <td>{slice.name}</td>
 
           <td>{slice.pct}%</td>
 
